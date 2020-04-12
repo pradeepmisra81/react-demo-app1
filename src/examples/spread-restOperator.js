@@ -3,3 +3,9 @@ const newNumbers = [...numbers,4];
 
 console.log("numbers:",numbers);
 console.log("newNumbers:",newNumbers);
+
+const filter = (...args) => {
+    return args.filter(el => el === 1);
+}
+
+console.log(filter(1,2,3));
