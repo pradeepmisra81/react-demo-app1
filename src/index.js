@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-var element = React.createElement('h1', { className: 'greeting' }, 'My First React Demo App -- Pradeep');
-ReactDOM.render(element, document.getElementById('root'));
+//var element = React.createElement('h1', { className: 'greeting' }, 'My First React Demo App -- Pradeep');
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // ReactDOM.render(
 //   <React.StrictMode>
