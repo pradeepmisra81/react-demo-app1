@@ -20,7 +20,7 @@ class App extends Component {
         <Person name="Rahav" age="28"/>
         <Person name="Sunil" age="29"/>
         <Person name="Satya" age="30"/>
-        <Person name="Praveen" age="31"/>
+        <Person name="Praveen" age="31">My father name: Guru Prasad</Person>
         <Person name="Seema" age="32"/>
       </div>
     );
