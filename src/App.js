@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Person from './Person/Person.js'
 
@@ -10,8 +10,9 @@ import Person from './Person/Person.js'
 //   );
 // }
 
-class App extends Component {
-  state = {
+// class App extends Component {
+const App = props => {
+  const [personsState, setPersonsState]  = useState({
     persons: [
       { name: "Rahav", age: "28" },
       { name: "Sunil", age: "29" },
@@ -19,12 +20,12 @@ class App extends Component {
       { name: "Praveen", age: "31" },
       { name: "Seema", age: "32" }
     ],
-    otherState: 'some other value' 
-  }
+    otherState: 'some other value'
+  });
 
-  switchNameHandler = () => {
+  const switchNameHandler = () => {
     //console.log("switch Name button clicked");
-    this.setState({ 
+    setPersonsState({ 
       persons: [
         { name: "Rahavendra", age: "28" },
         { name: "Sunildude", age: "29" },
@@ -36,22 +37,19 @@ class App extends Component {
     );
   }
 
-  render() {
-    return (
-      <div className="App">
-        <hi>Hi, this is my first react demo application</hi>
-        <p>This is really working</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-        <Person name={this.state.persons[3].name} age={this.state.persons[3].age}>My father name: Guru Prasad</Person>
-        <Person name={this.state.persons[4].name} age={this.state.persons[4].age}/>
-      </div>
-    );
+  return (
+    <div className="App">
+      <hi>Hi, this is my first react demo application</hi>
+      <p>This is really working</p>
+      <button onClick={switchNameHandler}>Switch Name</button>
+      <Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>
+      <Person name={personsState.persons[1].name} age={personsState.persons[1].age}/>
+      <Person name={personsState.persons[2].name} age={personsState.persons[2].age}/>
+      <Person name={personsState.persons[3].name} age={personsState.persons[3].age}>My father name: Guru Prasad</Person>
+      <Person name={personsState.persons[4].name} age={personsState.persons[4].age}/>
+    </div>
+  );
     //return React.createElement('div',{className:'App'},React.createElement('h1',null,'Does this works?'));
-  }
-
 }
 
 export default App;
