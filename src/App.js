@@ -1,8 +1,9 @@
 // import React, {useState} from 'react';
 import React, {Component} from 'react';
 import './App.css';
-import Person from './Person/Person.js'
-import './Person/Person.css'
+import { Button } from 'antd';
+import Person from './Person/Person.js';
+import './Person/Person.css';
 
 // function App() {
 //   return (
@@ -13,14 +14,59 @@ import './Person/Person.css'
 // }
 
  class App extends Component {
+
+  state = {
+    persons: [
+      { name: 'Rama', age: 28 },
+      { name: 'Shyam', age: 29 },
+      { name: 'Sita', age: 26 }
+    ],
+    otherState: "Some other value"
+  }
+
+  switchNameHandler = (newName) => {
+    this.setState({
+      persons: [
+        { name: newName, age: 28 },
+        { name: 'ShyamKumar', age: 29 },
+        { name: 'SitaMani', age: 26 }
+      ]
+    })
+  }
    render() {
       return (
         <div className="App">
           <h1>Hi, this is my first react demo application</h1>
           <p>And this is really working !</p>
-          <Person name='Ram' age='28'></Person>
-          <Person name='Shyam' age='29'></Person>
-          <Person name='Sita' age='26'></Person>
+          <Button
+                  type="primary"
+                  shape="round"
+                  size="big"
+                  onClick={this.switchNameHandler.bind(this,'Ramaswami')}
+          >
+                  Switch Name
+          </Button>
+
+          <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          >
+          </Person>
+
+          <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this,'Ramakant')}
+          >
+            
+            I belong to Mathura
+          </Person>
+
+          <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age}
+          >
+          </Person>
         </div>
   );
    }
