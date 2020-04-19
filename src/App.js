@@ -33,6 +33,18 @@ import './Person/Person.css';
       ]
     })
   }
+
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: 'Ram', age: 28 },
+        { name: event.target.value, age: 29 },
+        { name: 'SitaMani', age: 26 }
+      ]
+    })
+  }
+
+
    render() {
       return (
         <div className="App">
@@ -42,7 +54,7 @@ import './Person/Person.css';
                   type="primary"
                   shape="round"
                   size="big"
-                  onClick={this.switchNameHandler.bind(this,'Ramaswami')}
+                  onClick={() => this.switchNameHandler('Ramaswami!!')}
           >
                   Switch Name
           </Button>
@@ -57,6 +69,7 @@ import './Person/Person.css';
           name={this.state.persons[1].name} 
           age={this.state.persons[1].age}
           click={this.switchNameHandler.bind(this,'Ramakant')}
+          changed={this.nameChangedHandler}
           >
             
             I belong to Mathura
