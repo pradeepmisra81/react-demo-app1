@@ -17,9 +17,9 @@ class App extends Component {
 
   state = {
     persons: [
-      { name: 'Rama', age: 28 },
-      { name: 'Shyam', age: 29 },
-      { name: 'Sita', age: 26 }
+      { id: 'identity1', name: 'Rama', age: 28 },
+      { id: 'identity2', name: 'Shyam', age: 29 },
+      { id: 'identity3', name: 'Sita', age: 26 }
     ],
     otherState: "Some other value",
     showPersons: false
@@ -35,14 +35,22 @@ class App extends Component {
     })
   }
 
-  nameChangedHandler = (event) => {
-    this.setState({
-      persons: [
-        { name: 'Ram', age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: 'SitaMani', age: 26 }
-      ]
-    })
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person = { 
+      ...this.state.persons[personIndex] 
+    };
+    //const person = Object.assign({}, this.state.person[personIndex]);
+    person.name = event.target.value;
+
+    const persons = [ ...this.state.persons ];
+    persons[personIndex] = person;
+
+    this.setState({persons: persons});
+
   }
 
   togglePersonsHandler = () => {
@@ -73,9 +81,11 @@ class App extends Component {
         <div>
           {this.state.persons.map((person,index) => {
             return <Person
+              click={() => this.deletePersonsHandler(index)}
               name={person.name}
               age={person.age}
-              click={() => this.deletePersonsHandler(index)}
+              key={person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)}
             />
           })}
         </div>
@@ -84,7 +94,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Hi, this is my first react demo application</h1>
+        <h1>Hi, this is a react demo application</h1>
         <p>And this is really working !</p>
         <Button
           style={style}
