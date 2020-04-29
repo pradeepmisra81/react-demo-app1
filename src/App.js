@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Button } from 'antd';
 import Person from './Person/Person.js';
+import Radium from 'radium';
 import './Person/Person.css';
+import { symbol } from 'prop-types';
 
 // function App() {
 //   return (
@@ -72,7 +74,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -93,19 +99,30 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      };
     }
 
-    let classes = ['red', 'bold'].join(' ');
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
+
     return (
       <div className="App">
         <h1>Hi, this is a react demo application</h1>
-        <p className={ classes }>And this is really working !</p>
-        <Button
+        <p className={ classes.join(' ') }>And this is really working !</p>
+        <button
           style={style}
           onClick={this.togglePersonsHandler}
         >
           Toggle Persons
-        </Button>
+        </button>
         {persons}
       </div>
     );
@@ -161,4 +178,4 @@ class App extends Component {
 //   );
 // }
 
-export default App;
+export default Radium(App);
