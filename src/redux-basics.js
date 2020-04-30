@@ -1,0 +1,5 @@
+// store
+
+// dispatching action
+
+// reducer
