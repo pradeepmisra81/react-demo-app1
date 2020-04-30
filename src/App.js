@@ -1,19 +1,26 @@
 // import React, {useState} from 'react';
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
-import { Button } from 'antd';
+//import { Button } from 'antd';
 import Person from './Person/Person.js';
 import Radium from 'radium';
 import './Person/Person.css';
 import { symbol } from 'prop-types';
+import Button from '@material-ui/core/Button';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Hi, this is my first react demo application</h1>
-//     </div>
-//   );
-// }
+/*
+function App() {
+  return (
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+*/
+
 
 class App extends Component {
 
@@ -117,12 +124,12 @@ class App extends Component {
       <div className="App">
         <h1>Hi, this is a react demo application</h1>
         <p className={ classes.join(' ') }>And this is really working !</p>
-        <button
+        <Button
           style={style}
           onClick={this.togglePersonsHandler}
         >
           Toggle Persons
-        </button>
+        </Button>
         {persons}
       </div>
     );
