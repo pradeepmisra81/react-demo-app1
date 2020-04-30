@@ -1,4 +1,4 @@
-const redux = require('react-redux');
+const redux = require('redux');
 const createStore = redux.createStore;
 
 // reducer
@@ -8,6 +8,7 @@ const rootReducer = (state, action) => {
 
 // store
 const store = createStore(rootReducer);
+console.log(store)
 
 // dispatching action
 
