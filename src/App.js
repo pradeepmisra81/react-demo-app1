@@ -39,7 +39,7 @@ const App = props => {
 
   return (
     <div className="App">
-      <hi>Hi, this is my first react demo application</hi>
+      <hi>Hi, this is react hooks and redux demo application</hi>
       <p>This is really working</p>
       <button onClick={switchNameHandler}>Switch Name</button>
       <Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>
