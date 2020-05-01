@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import reducer from './store/reducer'
+
+const store = createStore(reducer);
 
 //var element = React.createElement('h1', { className: 'greeting' }, 'My First React Demo App -- Pradeep');
 ReactDOM.render(<App/>, document.getElementById('root'));

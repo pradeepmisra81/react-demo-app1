@@ -2,14 +2,6 @@ import React, {useState} from 'react';
 import './App.css';
 import Person from './Person/Person.js'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Hi, this is my first react demo application</h1>
-//     </div>
-//   );
-// }
-
 // class App extends Component {
 const App = props => {
   const [personsState, setPersonsState]  = useState({
@@ -49,7 +41,6 @@ const App = props => {
       <Person name={personsState.persons[4].name} age={personsState.persons[4].age}/>
     </div>
   );
-    //return React.createElement('div',{className:'App'},React.createElement('h1',null,'Does this works?'));
 }
 
 export default App;
