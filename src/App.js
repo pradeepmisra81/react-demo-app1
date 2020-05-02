@@ -2,11 +2,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-//import { Button } from 'antd';
 import Person from './Person/Person.js';
 import Radium from 'radium';
 import './Person/Person.css';
-import { symbol } from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 /*
