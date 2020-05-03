@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import Person from '../components/Persons/Person/Person.js';
+import Persons from '../components/Persons/Persons';
 import Radium from 'radium';
-import './components/Persons/Person/Person.css';
+import '../components/Persons/Person/Person.css';
 import Button from '@material-ui/core/Button';
 
 /*
@@ -91,15 +91,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person,index) => {
-            return <Person
-              click={() => this.deletePersonsHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangedHandler(event, person.id)}
-            />
-          })}
+          <Persons
+          persons = {this.state.persons}
+          clicked={this.deletePersonsHandler}
+          changed={this.nameChangedHandler}
+          />
         </div>
       );
 
