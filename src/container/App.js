@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import Person from './Person/Person.js';
+import Person from '../components/Persons/Person/Person.js';
 import Radium from 'radium';
-import './Person/Person.css';
+import './components/Persons/Person/Person.css';
 import Button from '@material-ui/core/Button';
 
 /*
