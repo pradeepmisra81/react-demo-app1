@@ -6,4 +6,5 @@ test('renders learn react link', () => {
   const { getByText } = render(<App />);
   const textElement = getByText('Click me please');
   expect(textElement).toBeInTheDocument();
+  console.log(document.body.innerHTML);
 });
