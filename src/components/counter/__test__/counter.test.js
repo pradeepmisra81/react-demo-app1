@@ -9,6 +9,8 @@ it("increment when clicked", () => {
     ReactDOM.render(<Counter/>,div);
     const button = document.body.querySelector('button');
     expect(button.textContent).toBe('0');
+    button.click();
+    expect(button.textContent).toBe('1');
     console.log(document.body.innerHTML);
 })
 
